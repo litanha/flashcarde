@@ -1,16 +1,28 @@
  function criaCartao(categoria, pergunta, resposta) {
   let container = document.getElementById('container')
-  letcartao = document.createElement('article')
+  let cartao = document.createElement('article')
   cartao.className = 'cartao'
-}
- cratao.innerHTML= `
+
+ cartao.innerHTML= `
 <div class="cartao__conteudo">
-<h3>geografia</h3>
+<h3>${categoria}</h3>
 <div class="cartao__conteudo__pergunta">
-<p>qual é a capital da frança?</p> 
+<p>${pergunta}</p> 
 </div>
 <div class="cartao__conteudo__resposta">
-<p> O JavaScript é uma linguagem de programação</p>
+<p>${resposta}</p>
  </div>
  </div>
-               `
+`
+let respostEstaVisivel= false
+
+function viraCartao(){
+  respostaEstaVisivel=!respostaEstaVisivel
+  cartao.classList.toggle('active', respostEstaVisivel)
+}
+
+cartao.addEventListener('click', viraCartao)
+
+container.appendChild(cartao)
+
+ }
